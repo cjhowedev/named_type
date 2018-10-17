@@ -4,6 +4,7 @@ extern crate named_type_derive;
 
 use named_type::NamedType;
 
+#[allow(dead_code)]
 #[derive(NamedType)]
 struct MyStruct {}
 
@@ -13,6 +14,7 @@ fn test_struct() {
     assert_eq!(MyStruct::short_type_name(), "MyStruct");
 }
 
+#[allow(dead_code)]
 #[derive(NamedType)]
 enum MyEnum {}
 
@@ -22,6 +24,7 @@ fn test_enum() {
     assert_eq!(MyEnum::short_type_name(), "MyEnum");
 }
 
+#[allow(dead_code)]
 #[derive(NamedType)]
 #[named_type(short_prefix = "Pre")]
 enum Prefixed {}
@@ -32,6 +35,7 @@ fn test_prefix() {
     assert_eq!(Prefixed::short_type_name(), "PrePrefixed");
 }
 
+#[allow(dead_code)]
 #[derive(NamedType)]
 #[named_type(short_suffix = "_suffix")]
 struct Suffixed {}
