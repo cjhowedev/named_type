@@ -1,6 +1,6 @@
 [package]
 name = "named_type_derive"
-version = "0.1.4"
+version = "0.1.5"
 authors = ["Christian Howe <cjhowe7@pm.me>"]
 description = "Derive support for named_type"
 license = "MIT OR Apache-2.0"
