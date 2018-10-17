@@ -1,0 +1,14 @@
+[package]
+name = "named_type_derive"
+version = "0.1.4"
+authors = ["Christian Howe <cjhowe7@pm.me>"]
+description = "Derive support for named_type"
+license = "MIT OR Apache-2.0"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = "0.11.9"
+quote = "0.3.15"
+named_type = "0.1.4"
