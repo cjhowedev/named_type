@@ -12,30 +12,20 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            rustup install stable
-            rustup install nightly
+            rustup update stable
+            rustup default stable
             rustup component add rustfmt-preview
+            rustc --version --verbose
+            cargo --version --verbose
       - run:
           name: Check formatting
-          command: |
-            rustup run stable rustc --version --verbose
-            rustup run stable cargo --version --verbose
-            rustup run stable cargo fmt -- --check
+          command: cargo fmt -- --check
       - run:
-          name: Nightly Build
-          command: |
-            rustup run nightly rustc --version --verbose
-            rustup run nightly cargo --version --verbose
-            rustup run nightly cargo build
-      - run:
-          name: Stable Build
-          command: |
-            rustup run stable rustc --version --verbose
-            rustup run stable cargo --version --verbose
-            rustup run stable cargo build
+          name: Build
+          command: cargo build
       - run:
           name: Test
-          command: rustup run stable cargo test --lib
+          command: cargo test --lib
       - save_cache:
           key: project-cache
           paths:
