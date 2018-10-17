@@ -21,51 +21,41 @@ pub fn derive(input: TokenStream) -> TokenStream {
 
     let result = named_type_derive(ast).to_string();
 
-    result.parse().expect(&format!("Couldn't parse `{}` to tokens", result))
+    result
+        .parse()
+        .expect(&format!("Couldn't parse `{}` to tokens", result))
 }
 
 fn find_prefix_suffix(props: &Vec<NestedMetaItem>) -> Option<(&str, &str)> {
-    let prefix = props.iter()
-        .find(|item| {
-            match item {
-                &&NestedMetaItem::MetaItem(MetaItem::NameValue(ref ident, _)) => ident == "short_prefix",
-                _ => false,
+    let prefix = props
+        .iter()
+        .find(|item| match item {
+            &&NestedMetaItem::MetaItem(MetaItem::NameValue(ref ident, _)) => {
+                ident == "short_prefix"
             }
-        })
-        .and_then(|item| {
-            match item {
-                &NestedMetaItem::MetaItem(MetaItem::NameValue(_, ref value)) => {
-                    match value {
-                        &Lit::Str(ref string, _) => Some(string.as_ref()),
-                        _ => None,
-                    }
-                }
+            _ => false,
+        }).and_then(|item| match item {
+            &NestedMetaItem::MetaItem(MetaItem::NameValue(_, ref value)) => match value {
+                &Lit::Str(ref string, _) => Some(string.as_ref()),
                 _ => None,
-            }
-        })
-        .unwrap_or("");
+            },
+            _ => None,
+        }).unwrap_or("");
 
-    let suffix = props.iter()
-        .find(|item| {
-            match item {
-                &&NestedMetaItem::MetaItem(MetaItem::NameValue(ref ident, _)) => {
-                    ident.to_string() == "short_suffix"
-                }
-                _ => false,
+    let suffix = props
+        .iter()
+        .find(|item| match item {
+            &&NestedMetaItem::MetaItem(MetaItem::NameValue(ref ident, _)) => {
+                ident.to_string() == "short_suffix"
             }
-        })
-        .and_then(|item| {
-            match item {
-                &NestedMetaItem::MetaItem(MetaItem::NameValue(_, ref value)) => {
-                    match value {
-                        &Lit::Str(ref string, _) => Some(string.as_ref()),
-                        _ => None,
-                    }
-                }
+            _ => false,
+        }).and_then(|item| match item {
+            &NestedMetaItem::MetaItem(MetaItem::NameValue(_, ref value)) => match value {
+                &Lit::Str(ref string, _) => Some(string.as_ref()),
                 _ => None,
-            }
-        })
-        .unwrap_or("");
+            },
+            _ => None,
+        }).unwrap_or("");
 
     Some((prefix, suffix))
 }
@@ -77,19 +67,13 @@ fn named_type_derive(ast: syn::MacroInput) -> quote::Tokens {
     let (prefix, suffix) = {
         ast.attrs
             .iter()
-            .find(|attr| {
-                match &attr.value {
-                    &MetaItem::List(ref ident, _) => ident == "named_type",
-                    _ => false,
-                }
-            })
-            .and_then(|attr| {
-                match &attr.value {
-                    &MetaItem::List(_, ref props) => find_prefix_suffix(props),
-                    _ => None,
-                }
-            })
-            .unwrap_or(("", ""))
+            .find(|attr| match &attr.value {
+                &MetaItem::List(ref ident, _) => ident == "named_type",
+                _ => false,
+            }).and_then(|attr| match &attr.value {
+                &MetaItem::List(_, ref props) => find_prefix_suffix(props),
+                _ => None,
+            }).unwrap_or(("", ""))
     };
 
     let short_type_name: String = format!("{}{}{}", prefix, name, suffix);
