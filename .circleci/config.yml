@@ -10,6 +10,10 @@ jobs:
       - restore_cache:
           key: project-cache
       - run:
+          name: Install dependencies
+          command: |
+            rustup component add rustfmt-preview
+      - run:
           name: Check formatting
           command: |
             rustup run stable rustc --version --verbose
