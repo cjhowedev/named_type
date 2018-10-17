@@ -12,8 +12,9 @@ jobs:
       - run:
           name: Check formatting
           command: |
-            rustfmt --version
-            cargo fmt -- --write-mode=diff
+            rustup run stable rustc --version --verbose
+            rustup run stable cargo --version --verbose
+            rustup run stable cargo fmt -- --check
       - run:
           name: Nightly Build
           command: |
