@@ -12,6 +12,8 @@ jobs:
       - run:
           name: Install dependencies
           command: |
+            rustup install stable
+            rustup install nightly
             rustup component add rustfmt-preview
       - run:
           name: Check formatting
