@@ -5,4 +5,8 @@ authors = ["Christian Howe <cjhowe7@pm.me>"]
 description = "An API for getting a user-friendly name string for a type on stable Rust"
 license = "MIT OR Apache-2.0"
 
+documentation = "https://docs.rs/named_type"
+homepage = "https://github.com/cjhowe7/named_type"
+repository = "https://github.com/cjhowe7/named_type"
+
 [dependencies]
