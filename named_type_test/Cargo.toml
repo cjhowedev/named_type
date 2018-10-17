@@ -1,0 +1,8 @@
+[package]
+name = "named_type_test"
+version = "0.1.0"
+authors = ["Christian Howe <cjhowe7@pm.me>"]
+
+[dependencies]
+named_type = { path = "../named_type" }
+named_type_derive = { path = "../named_type_derive" }
