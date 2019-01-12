@@ -34,13 +34,15 @@ fn find_prefix_suffix(props: &Vec<NestedMetaItem>) -> Option<(&str, &str)> {
                 ident == "short_prefix"
             }
             _ => false,
-        }).and_then(|item| match item {
+        })
+        .and_then(|item| match item {
             &NestedMetaItem::MetaItem(MetaItem::NameValue(_, ref value)) => match value {
                 &Lit::Str(ref string, _) => Some(string.as_ref()),
                 _ => None,
             },
             _ => None,
-        }).unwrap_or("");
+        })
+        .unwrap_or("");
 
     let suffix = props
         .iter()
@@ -49,13 +51,15 @@ fn find_prefix_suffix(props: &Vec<NestedMetaItem>) -> Option<(&str, &str)> {
                 ident.to_string() == "short_suffix"
             }
             _ => false,
-        }).and_then(|item| match item {
+        })
+        .and_then(|item| match item {
             &NestedMetaItem::MetaItem(MetaItem::NameValue(_, ref value)) => match value {
                 &Lit::Str(ref string, _) => Some(string.as_ref()),
                 _ => None,
             },
             _ => None,
-        }).unwrap_or("");
+        })
+        .unwrap_or("");
 
     Some((prefix, suffix))
 }
@@ -70,15 +74,17 @@ fn named_type_derive(ast: syn::MacroInput) -> quote::Tokens {
             .find(|attr| match &attr.value {
                 &MetaItem::List(ref ident, _) => ident == "named_type",
                 _ => false,
-            }).and_then(|attr| match &attr.value {
+            })
+            .and_then(|attr| match &attr.value {
                 &MetaItem::List(_, ref props) => find_prefix_suffix(props),
                 _ => None,
-            }).unwrap_or(("", ""))
+            })
+            .unwrap_or(("", ""))
     };
 
     let short_type_name: String = format!("{}{}{}", prefix, name, suffix);
 
-    quote!{
+    quote! {
         impl #impl_generics NamedType for #name #ty_generics #where_clause {
             fn type_name() -> &'static str {
                 concat!(module_path!(), "::", stringify!(#name))
