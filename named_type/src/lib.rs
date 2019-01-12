@@ -55,6 +55,14 @@
 //! # }
 //! ```
 
+#[allow(unused_imports)]
+#[macro_use]
+extern crate named_type_derive;
+
+#[doc(hidden)]
+pub use named_type_derive::*;
+
+
 /// A trait for getting the name of a type
 pub trait NamedType {
     /// Returns the canonical name with the fully qualified module name for the
