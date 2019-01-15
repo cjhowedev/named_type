@@ -10,5 +10,3 @@ homepage = "https://github.com/cjhowe7/named_type"
 repository = "https://github.com/cjhowe7/named_type"
 
 [dependencies]
-named_type_derive = { path = "../named_type_derive" }
-

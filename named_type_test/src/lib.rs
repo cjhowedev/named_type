@@ -1,4 +1,6 @@
 extern crate named_type;
+#[macro_use]
+extern crate named_type_derive;
 
 use named_type::NamedType;
 
