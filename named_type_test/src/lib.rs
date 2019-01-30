@@ -17,7 +17,7 @@ fn test_struct() {
 #[allow(dead_code)]
 #[derive(NamedType)]
 enum MyEnum {
-    V1
+    V1,
 }
 
 #[test]
@@ -30,7 +30,7 @@ fn test_enum() {
 #[derive(NamedType)]
 #[named_type(short_prefix = "Pre")]
 enum Prefixed {
-    V1
+    V1,
 }
 
 #[test]
