@@ -16,7 +16,9 @@ fn test_struct() {
 
 #[allow(dead_code)]
 #[derive(NamedType)]
-enum MyEnum {}
+enum MyEnum {
+    V1
+}
 
 #[test]
 fn test_enum() {
@@ -27,7 +29,9 @@ fn test_enum() {
 #[allow(dead_code)]
 #[derive(NamedType)]
 #[named_type(short_prefix = "Pre")]
-enum Prefixed {}
+enum Prefixed {
+    V1
+}
 
 #[test]
 fn test_prefix() {
@@ -44,4 +48,15 @@ struct Suffixed {}
 fn test_suffix() {
     assert_eq!(Suffixed::type_name(), concat!(module_path!(), "::Suffixed"));
     assert_eq!(Suffixed::short_type_name(), "Suffixed_suffix");
+}
+
+#[test]
+fn test_ensure_that_structs_could_be_made_into_objects() {
+    let list_of_boxed_named_type: Vec<Box<NamedType>> = vec![
+        Box::new(MyStruct {}),
+        Box::new(MyEnum::V1),
+        Box::new(Prefixed::V1),
+        Box::new(Suffixed {}),
+    ];
+    assert_eq!(list_of_boxed_named_type.len(), 4);
 }

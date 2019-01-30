@@ -59,8 +59,12 @@
 pub trait NamedType {
     /// Returns the canonical name with the fully qualified module name for the
     /// given type
-    fn type_name() -> &'static str;
+    fn type_name() -> &'static str
+    where
+        Self: Sized;
 
     /// Returns a user-friendly short name for the given type
-    fn short_type_name() -> &'static str;
+    fn short_type_name() -> &'static str
+    where
+        Self: Sized;
 }
