@@ -3,12 +3,10 @@
 
 #![crate_type = "proc-macro"]
 
-extern crate proc_macro;
-extern crate syn;
-#[macro_use]
-extern crate quote;
-extern crate named_type;
+extern crate proc_macro; // must use extern crate for proc macros
+                         // see here: https://users.rust-lang.org/t/how-to-use-proc-macro-on-rust-2018/20833/2
 
+use quote::*;
 use proc_macro::TokenStream;
 use syn::{Lit, MetaItem, NestedMetaItem};
 

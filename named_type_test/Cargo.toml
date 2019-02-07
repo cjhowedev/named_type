@@ -1,7 +1,8 @@
 [package]
 name = "named_type_test"
 version = "0.1.0"
-authors = ["Christian Howe <cjhowe7@pm.me>"]
+authors = ["Christian Howe <cjhowe7@pm.me>", "Thomas Lienbacher <lienbacher.tom@gmail.com>"]
+edition = "2018"
 
 [dependencies]
 named_type = { path = "../named_type" }

@@ -1,9 +1,10 @@
 [package]
 name = "named_type_derive"
 version = "0.2.0"
-authors = ["Christian Howe <cjhowe7@pm.me>"]
+authors = ["Christian Howe <cjhowe7@pm.me>", "Thomas Lienbacher <lienbacher.tom@gmail.com>"]
 description = "Derive support for named_type"
 license = "MIT OR Apache-2.0"
+edition = "2018"
 
 documentation = "https://docs.rs/named_type"
 homepage = "https://github.com/cjhowe7/named_type"
