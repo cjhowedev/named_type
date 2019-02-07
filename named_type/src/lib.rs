@@ -8,10 +8,7 @@
 //! generated names. This is the expected usage of this crate for most types.
 //!
 //! ```
-//! extern crate named_type;
-//! #[macro_use]
-//! extern crate named_type_derive;
-//!
+//! use named_type_derive::*;
 //! use named_type::NamedType;
 //!
 //! #[derive(NamedType)]
@@ -34,10 +31,9 @@
 //! this only affects the short type name.
 //!
 //! ```
-//! # extern crate named_type;
-//! # #[macro_use]
-//! # extern crate named_type_derive;
+//! # use named_type_derive::*;
 //! # use named_type::NamedType;
+//!
 //! #[derive(NamedType)]
 //! #[named_type(short_suffix = "_suffix")]
 //! struct Suffixed {}
