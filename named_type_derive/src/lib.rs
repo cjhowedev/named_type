@@ -6,7 +6,7 @@
 extern crate proc_macro; // must use extern crate for proc macros
                          // see here: https://users.rust-lang.org/t/how-to-use-proc-macro-on-rust-2018/20833/2
 
-use quote::*;
+use quote::{Tokens, quote};
 use proc_macro::TokenStream;
 use syn::{Lit, MetaItem, NestedMetaItem};
 
