@@ -1,6 +1,6 @@
 [package]
 name = "named_type_test"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Christian Howe <cjhowe7@pm.me>", "Thomas Lienbacher <lienbacher.tom@gmail.com>"]
 edition = "2018"
 
