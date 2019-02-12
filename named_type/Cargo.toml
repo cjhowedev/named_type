@@ -1,9 +1,10 @@
 [package]
 name = "named_type"
-version = "0.2.0"
-authors = ["Christian Howe <cjhowe7@pm.me>"]
+version = "0.2.1"
+authors = ["Christian Howe <cjhowe7@pm.me>", "Thomas Lienbacher <lienbacher.tom@gmail.com>"]
 description = "An API for getting a user-friendly name string for a type on stable Rust"
 license = "MIT OR Apache-2.0"
+edition = "2018"
 
 documentation = "https://docs.rs/named_type"
 homepage = "https://github.com/cjhowe7/named_type"
