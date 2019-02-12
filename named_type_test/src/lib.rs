@@ -1,5 +1,5 @@
-use named_type_derive::*;
 use named_type::NamedType;
+use named_type_derive::*;
 
 #[allow(dead_code)]
 #[derive(NamedType)]
