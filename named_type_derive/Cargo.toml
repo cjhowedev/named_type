@@ -16,4 +16,4 @@ proc-macro = true
 [dependencies]
 syn = "0.11.9"
 quote = "0.3.15"
-named_type = "0.1.4"
+named_type = "0.2"
