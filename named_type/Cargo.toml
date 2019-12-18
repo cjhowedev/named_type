@@ -10,4 +10,5 @@ documentation = "https://docs.rs/named_type"
 homepage = "https://github.com/cjhowe7/named_type"
 repository = "https://github.com/cjhowe7/named_type"
 
-[dependencies]
+[dev-dependencies]
+named_type_derive = { version = "0.2.1", path = "../named_type_derive" }
