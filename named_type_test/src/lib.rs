@@ -49,7 +49,7 @@ fn test_suffix() {
 
 #[test]
 fn test_ensure_that_structs_could_be_made_into_objects() {
-    let list_of_boxed_named_type: Vec<Box<NamedType>> = vec![
+    let list_of_boxed_named_type: Vec<Box<dyn NamedType>> = vec![
         Box::new(MyStruct {}),
         Box::new(MyEnum::V1),
         Box::new(Prefixed::V1),

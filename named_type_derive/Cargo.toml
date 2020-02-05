@@ -14,6 +14,6 @@ repository = "https://github.com/cjhowe7/named_type"
 proc-macro = true
 
 [dependencies]
-syn = "0.11.9"
-quote = "0.3.15"
-named_type = "0.1.4"
+proc-macro2 = "1.0.6"
+quote = "1.0.2"
+syn = "1.0.11"
