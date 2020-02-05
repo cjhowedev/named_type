@@ -1,6 +1,6 @@
 [package]
 name = "named_type"
-version = "0.2.1"
+version = "0.2.2"
 authors = ["Christian Howe <cjhowe7@pm.me>", "Thomas Lienbacher <lienbacher.tom@gmail.com>"]
 description = "An API for getting a user-friendly name string for a type on stable Rust"
 license = "MIT OR Apache-2.0"
@@ -11,4 +11,4 @@ homepage = "https://github.com/cjhowe7/named_type"
 repository = "https://github.com/cjhowe7/named_type"
 
 [dev-dependencies]
-named_type_derive = { version = "0.2.1", path = "../named_type_derive" }
+named_type_derive = { version = "0.2.2", path = "../named_type_derive" }
