@@ -20,9 +20,11 @@ fn find_prefix_suffix<P>(props: &Punctuated<NestedMeta, P>) -> Option<(String, S
         .iter()
         .find_map(|item| {
             if let NestedMeta::Meta(Meta::NameValue(name_value)) = item {
-                if name_value.path.get_ident() == Some(&Ident::new("short_prefix", Span::call_site())) {
+                if name_value.path.get_ident()
+                    == Some(&Ident::new("short_prefix", Span::call_site()))
+                {
                     if let Lit::Str(s) = &name_value.lit {
-                        return Some(s.value())
+                        return Some(s.value());
                     }
                 }
             }
@@ -34,9 +36,11 @@ fn find_prefix_suffix<P>(props: &Punctuated<NestedMeta, P>) -> Option<(String, S
         .iter()
         .find_map(|item| {
             if let NestedMeta::Meta(Meta::NameValue(name_value)) = item {
-                if name_value.path.get_ident() == Some(&Ident::new("short_suffix", Span::call_site())) {
+                if name_value.path.get_ident()
+                    == Some(&Ident::new("short_suffix", Span::call_site()))
+                {
                     if let Lit::Str(s) = &name_value.lit {
-                        return Some(s.value())
+                        return Some(s.value());
                     }
                 }
             }
@@ -56,7 +60,9 @@ fn named_type_derive(ast: syn::DeriveInput) -> TokenStream {
             .iter()
             .find_map(|attr| {
                 if let Meta::List(meta_list) = attr.parse_meta().unwrap() {
-                    if meta_list.path.get_ident() == Some(&Ident::new("named_type", Span::call_site())) {
+                    if meta_list.path.get_ident()
+                        == Some(&Ident::new("named_type", Span::call_site()))
+                    {
                         return find_prefix_suffix(&meta_list.nested);
                     }
                 }
@@ -77,5 +83,6 @@ fn named_type_derive(ast: syn::DeriveInput) -> TokenStream {
                 #short_type_name
             }
         }
-    ).into()
+    )
+    .into()
 }
